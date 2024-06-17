@@ -1,0 +1,5 @@
+FROM ${PHP_BASE_IMAGE}
+
+WORKDIR /var/www/html
+
+ADD . /var/www/html

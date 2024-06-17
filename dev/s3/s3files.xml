@@ -1,0 +1,10 @@
+<S3>
+    <payload>
+        <head>Title</head>
+        <body>
+            <quantity>5</quantity>
+            <size>5</size>
+        </body>
+    </payload>
+
+</S3>

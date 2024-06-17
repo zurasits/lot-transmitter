@@ -1,0 +1,39 @@
+{
+  "name": "lot-transmitter",
+  "description": "",
+  "type": "project",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://repo.packagist.com/privatrepo-trade-dev/"
+    }
+  ],
+  "config": {
+    "sort-packages": true,
+    "platform": {
+      "php": "7.3.3"
+    }
+  },
+  "require": {
+    "php": "^7.3",
+    "ext-json": "*",
+    "ext-libxml": "*",
+    "ext-simplexml": "*",
+    "aws/aws-sdk-php": "^3.87",
+    "guzzlehttp/guzzle": "^6.3",
+    "lesstif/php-jira-rest-client": "^1.35",
+    "sentry/sdk": "^2.0",
+    "ext-fileinfo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "LotTransmitter\\": "src/"
+    }
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master",
+    "codeception/codeception": "^2.5"
+  }
+}

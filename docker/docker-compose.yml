@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+
+  lot-transmitter:
+    image: docker-registry.privatrepo.ag/sl-php/7.3/fpm-dev/privatrepo:latest
+    volumes:
+      - $PWD/../:/var/www/html
+    environment:
+      - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
+      - AWS_REGION=fakes3
+      - AWS_ENDPOINT=http://${HOST_IP}:45701
+      - AWS_VERSION=latest
+      - AWS_KEY=
+      - AWS_SECRET=
+      - S3_BUCKET=${S3_BUCKET}
+      - S3_PREFIX=${S3_PREFIX}
+      - REST_ENDPOINT_URL=${REST_ENDPOINT_URL}
+      - JIRA_ENABLE=0
+      - JIRA_ENABLE_CREATE_TICKET=0
+      - JIRA_HOST=https://jira.privatrepo.ag
+      - JIRA_USERNAME=monitoring
+      - JIRA_PASSWORD=--
+      - JIRA_PROJECT=EDI
+      - JIRA_ISSUETYPE=Bug
+      - LOGGER_PATH="/tmp/stdout"
+      - ENVIRONMENT=dev
+      - COMMIT_HASH=
+      - SENTRY_PROJECT_ID=--
+      - SENTRY_PUBLIC_KEY=--
+    links:
+      - lot-transmitter-s3
+    depends_on:
+      - lot-transmitter-s3
+    extra_hosts:
+      - "host.docker.internal:${HOST_IP}"
+    networks:
+      - lot-transmitter
+
+  lot-transmitter-s3:
+    image: fingershock/fakes3
+    volumes:
+      - $PWD/../dev/s3:/fakes3_data:rw
+    ports:
+      - "${S3_PORT}:8000"
+    networks:
+      - lot-transmitter
+
+networks:
+  lot-transmitter:

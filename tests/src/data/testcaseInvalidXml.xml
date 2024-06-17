@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<semiramis xmlns="com.cisag.app.general.obj.Item" xsi:schemaLocation="com.cisag.app.general.obj.Item Item.xsd"
+           created="2019-02-04T14:33:28.117Z" locale="en-US-XMLSchemaCompliant"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nlsMode="MULTI_LANGUAGE" dateTimeMode="NORMALIZED">
+    <Item xmlns="com.cisag.app.general.obj.Item">
+        <ReferenceItem xsi:nil="true"/>
+            <quantity>
+                <amount>1</amount>
+            </quantity>
+            <AssortmentItem>
+                <number>193035146-1004-01</number>
+            </AssortmentItem>
+            <VariantItem>
+                <eans index="0"></eans>
+                <eans index="1"/>
+                <eans index="2"/>
+                <eans index="3"/>
+            </VariantItem>
+        </Imp_AssortmentDefinition>
+    </Item>
+    <Item xmlns="com.cisag.app.general.obj.Item">
+        <ReferenceItem>
+            <number>193035146-1004-01</number>
+        </ReferenceItem>
+        <Uoms index="0">
+            <EANs>
+                <id>4251200680400</id>
+            </EANs>
+        </Uoms>
+    </Item>
+</semiramis>
